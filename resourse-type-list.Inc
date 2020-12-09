@@ -4,11 +4,13 @@ include kernel32.inc
 include user32.inc
 include Comctl32.inc
 include shell32.inc
+include masm32.inc
 
 includelib kernel32.lib
 includelib user32.lib
 includelib Comctl32.lib
 includelib shell32.lib
+includelib masm32.lib
 
 DlgProc			PROTO	:HWND,:UINT,:WPARAM,:LPARAM
 
@@ -30,6 +32,8 @@ IDC_LST1						equ 1003
 .data
 mb_caption db 'Exit',0
 mb_text db 'Do you really want to exit programm?',0
+szListBox db 'ListBox',0
+
 
 ;tab text
 szRT_ACCELERATOR		BYTE				"RT_ACCELERATOR",0
@@ -60,7 +64,8 @@ szRT_VXD				BYTE				"VXD",0
 hTabs dd 25 dup(?)	;array of tabs handle
 hInstance			dd ?
 hListBox 			dd ?
-hTabControl				dd ?
+hTabControl			dd ?
+hDialog				dd ?
 ts				TC_ITEM <?>
 
 ;#########################################################################
